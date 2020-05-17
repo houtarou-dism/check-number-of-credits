@@ -1,0 +1,139 @@
+.select-year-position{
+    margin-top: 10rem;
+}
+
+.select-year-content{
+    width: 22rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+    background-color: #ededed;
+    border: 2px solid #cfcfcf;
+    position: relative;
+}
+
+.select-year-title{
+    width: 100%;
+    font-size: 1.8rem;
+    text-align: center;
+    display: inline-block;
+}
+
+.select-year-option{
+    position: relative;
+}
+
+.select-year{
+    font-size: 1.3rem;
+    padding-left: 2rem;
+}
+
+.select-year-option > select{
+    height: 3rem;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.down-arrow{
+    position: absolute;
+    width: 1rem;
+    top: 15px;
+    right: 15px;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.submit-btn{
+    width: 100%;
+}
+
+@media (max-width: 480px){
+
+    .select-year-content{
+        width: 18rem;
+    }
+
+    .select-year-title{
+        font-size: 1.3em;
+    }
+
+    .select-year{
+        font-size: 1rem;
+        padding-left: 1rem;
+    }
+
+    .select-year-option > select{
+        height: 2.5rem;
+    }
+
+    .down-arrow{
+        width: 1rem;
+        top: 12px;
+        right: 10px;
+    }
+}
+
+.freshman-position{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.freshman-title{
+    font-size: 30px;
+    margin-bottom: 3rem;
+}
+
+.freshman-content > .custom-checkbox > label:before{
+    height: 1.5rem;
+    width: 1.5rem;
+    top: 0.5rem;
+    left: -2rem;
+}
+
+.freshman-content > .custom-checkbox > label:after{
+    height: 1.5rem;
+    width: 1.5rem;
+    top: 0.5rem;
+    left: -2rem;
+}
+
+.freshman-content > .custom-checkbox{
+    font-size: 28px;
+}
+
+.freshman-content-position{
+    flex-wrap: wrap;
+}
+
+.freshman-content{
+    height: 100%;
+    width: 18rem;
+    margin: 1rem;
+    padding: 0.8rem 1.2rem;
+    background-color: #f2f2f2;
+    border: 1px solid #dbd9d9;
+    border-radius: 0.5rem;
+    filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.1));
+}
+
+.field-title{
+    margin-top: 0.8rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #adacac;
+    display: inline-block;
+}
+
+.custom-checkbox-point{
+    cursor: pointer;
+    user-select: none;
+}
+
+@media (max-width: 1330px){
+    .freshman-content{
+        width: 25rem;
+    }
+}
