@@ -1,4 +1,4 @@
-.icon-size-13{
+.i-s-13{
     font-size: 1.3rem
 }
 
@@ -88,4 +88,16 @@
 
 .popover-help:focus{
     outline: none;
+}
+
+.submit-btn{
+    width: 20rem;
+    margin-right: 3rem;
+}
+
+@media (max-width: 480px){
+    .submit-btn{
+        width: 100%;
+        margin-right: 0;
+    }
 }

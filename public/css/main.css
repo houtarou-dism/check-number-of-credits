@@ -45,10 +45,6 @@
     pointer-events: none;
 }
 
-.submit-btn{
-    width: 100%;
-}
-
 @media (max-width: 480px){
 
     .select-year-content{
@@ -82,8 +78,7 @@
     padding-right: 1rem;
 }
 
-.freshman-title{
-    font-size: 30px;
+.freshman-header{
     margin-bottom: 3rem;
 }
 
@@ -130,6 +125,10 @@
 .custom-checkbox-point{
     cursor: pointer;
     user-select: none;
+}
+
+.submit-btn-position{
+    margin-top: 5rem;
 }
 
 @media (max-width: 1330px){

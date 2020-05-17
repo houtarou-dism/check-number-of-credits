@@ -19,7 +19,7 @@
                     </select>
                     <img id="year-select" class="down-arrow" src="{{ asset('images/chevron-down-solid.svg') }}" alt="Arrow Icon" aria-hidden="true">
                 </div>
-                <button type="submit" id="submit-btn" class="btn btn-secondary submit-btn">送信</button>
+                <button type="submit" id="submit-btn" class="btn btn-secondary w-100">送信</button>
             </form>
         </div>
     </main>
