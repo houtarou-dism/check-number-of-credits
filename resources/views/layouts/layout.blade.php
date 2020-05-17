@@ -36,6 +36,12 @@
             $("#submit-btn").prop("disabled", true);
         },1);
     });
+
+    let MyStorage = function (app) {
+
+        this.app = app;
+
+    }
 </script>
 
 </body>
