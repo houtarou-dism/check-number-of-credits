@@ -90,14 +90,65 @@
     outline: none;
 }
 
-.submit-btn{
+.check-submit-btn{
+    width: 90%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: white;
+    font-size: 20px !important;
+    border: 1px solid #1c9dff;
+    background-color: #45aaf7;
+}
+
+.check-submit-btn:hover{
+    border: 1px solid #1457ff;
+    background-color: #336dff;
+}
+
+.submit-btn-size{
     width: 20rem;
     margin-right: 3rem;
 }
 
+.submit-btn{
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border: 1px solid #0c84fa;
+    border-radius: 0.4rem;
+    font-size: 20px !important;
+    color: white;
+    background-color: #2d95fc;
+}
+
+.submit-btn:hover{
+    color: white;
+    border: 1px solid #0f3fff;
+    background-color: #2d56fc;
+}
+
+.submit-btn-disabled{
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border: 1px solid #8cc1ff;
+    border-radius: 0.4rem;
+    font-size: 20px !important;
+    color: white;
+    background-color: #bddbff;
+    cursor: default;
+    pointer-events: none;
+    tab-index: '-1';
+}
+
 @media (max-width: 480px){
-    .submit-btn{
+
+    .submit-btn-size{
         width: 100%;
         margin-right: 0;
+    }
+
+    .submit-btn{
+        font-size: 18px !important;
     }
 }

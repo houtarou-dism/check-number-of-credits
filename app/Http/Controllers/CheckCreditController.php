@@ -17,19 +17,19 @@ class CheckCreditController extends Controller
         switch ($request['selectYear']){
 
             case 'freshman':
-                return view('university.freshman.freshman-freshman');
+                return redirect(route('freshman.freshman'));
                 break;
 
             case 'sophomore':
-                return view('university.sophomore.sophomore-freshman');
+                return redirect(route('sophomore.freshman'));
                 break;
 
             case 'junior':
-                return view('university.junior.junior-freshman');
+                return redirect(route('junior.freshman'));
                 break;
 
             case 'senior':
-                return view('university.senior.senior-freshman');
+                return redirect(route('senior.freshman'));
                 break;
 
             default:

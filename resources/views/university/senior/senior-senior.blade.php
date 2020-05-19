@@ -1,8 +1,11 @@
 @extends('layouts.layout')
 
 @section('content')
-    <main class="freshman-position">
-        <div class="text-center freshman-header">
+    <div class="modal fade" id="confirmationScreen" tabindex="-1" role="dialog" aria-labelledby="confirmationScreenTitle" aria-hidden="true" style="display: none;">
+        @include('dialog.senior-check-dialog')
+    </div>
+    <main class="year-position">
+        <div class="text-center year-header">
             <p class="d-inline-block mb-0 f-s-30">大学４年次</p>
             <div class="d-inline-block dialog-popover">
                 <i class="fas fa-question-circle icon-color-purple ml-2 i-s-20 popover-help"
@@ -12,14 +15,13 @@
                 </i>
             </div>
         </div>
-        <form action="#" method="POST">
-            @csrf
-            @include('university.select.senior')
-            <div class="text-right submit-btn-position">
-                <div class="d-inline-block w-100">
-                    <button type="submit" id="submit-btn" class="btn btn-secondary py-3 submit-btn">送信</button>
-                </div>
+        @include('university.select.senior')
+        <div class="text-right submit-btn-position">
+            <div class="d-inline-block submit-btn-size">
+                <a id="confirmation-senior-submit-button" class="d-inline-block text-center submit-btn" role="button" data-toggle="modal" href="#confirmationScreen">
+                    送信
+                </a>
             </div>
-        </form>
+        </div>
     </main>
 @endsection
