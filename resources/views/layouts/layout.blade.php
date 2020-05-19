@@ -38,8 +38,6 @@
     const seniorConfirmationSubmitBtn = $("#confirmation-senior-submit-button");
     let storage = sessionStorage;
     let objData = [];
-    let data = {};
-    let tempData = {};
 
     name.on("keypress", function (e) {
         if (e.which === 13) {
@@ -59,25 +57,22 @@
             $("#select-submit-btn").prop("disabled", false);
         },3000);
 
-        let selectData = {};
-
-        selectData['select'] = document.getElementById('year-select').value;
-
-        storage.setItem('select', JSON.stringify(selectData));
+        storage.setItem('select', document.getElementById('year-select').value);
     });
 
     function checkboxData(select_year) {
 
-        let itemKey = 0;
+        let data = {};
+        let keyData = 0;
         let frm = document.getElementById(select_year);
 
         for(let i=0; i<frm.item.length; i++){
             if(frm.item[i].checked){
-                tempData[itemKey] = frm.item[i].value;
-                itemKey++;
+                data[keyData] = frm.item[i].value;
+                keyData++;
             }
         }
-        data[select_year] = tempData;
+
         storage.setItem(select_year,  JSON.stringify(data));
     }
 
@@ -109,10 +104,14 @@
 
         checkboxData('freshman');
 
-        objData.push(storage.getItem('select'));
-        objData.push(storage.getItem('freshman'));
+        let data = {
+            data: {
+                'select': storage.getItem('select'),
+                'freshman': JSON.parse(storage.getItem('freshman')),
+            },
+        }
 
-        $('#check-form-freshman').val(objData);
+        $('#check-form-freshman').val(JSON.stringify(data));
     });
 
     sophomoreConfirmationSubmitBtn.on("click", function() {
