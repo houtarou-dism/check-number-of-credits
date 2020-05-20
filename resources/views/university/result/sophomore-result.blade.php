@@ -1,0 +1,3 @@
+{{ $totalCredits }}
+{{ $notFreshmanCompulsorySubjects }}
+{{ $notSophomoreCompulsorySubjects }}

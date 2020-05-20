@@ -4,6 +4,9 @@
     @error('selectYear')
     @include('alert.fail_alert', ['message' => $message])
     @enderror
+    @if(@Session::has('message'))
+        @include('alert.fail_alert', ['message' => session('message')])
+    @endif
     <main class="select-year-position">
         <div class="select-year-content">
             <form action="{{ route('select_year') }}" method="POST">

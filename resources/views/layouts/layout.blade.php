@@ -37,7 +37,6 @@
     const juniorConfirmationSubmitBtn = $("#confirmation-junior-submit-button");
     const seniorConfirmationSubmitBtn = $("#confirmation-senior-submit-button");
     let storage = sessionStorage;
-    let objData = [];
 
     name.on("keypress", function (e) {
         if (e.which === 13) {
@@ -45,7 +44,7 @@
         }
     });
 
-    $("#select-submit-btn").one("click", function() {
+    $("#select-submit-btn").on("click", function() {
 
         storage.clear();        //storageの全削除
 
@@ -56,13 +55,11 @@
         setTimeout(function(){
             $("#select-submit-btn").prop("disabled", false);
         },3000);
-
-        storage.setItem('select', document.getElementById('year-select').value);
     });
 
     function checkboxData(select_year) {
 
-        let data = {};
+        let data = [];
         let keyData = 0;
         let frm = document.getElementById(select_year);
 
@@ -106,7 +103,6 @@
 
         let data = {
             data: {
-                'select': storage.getItem('select'),
                 'freshman': JSON.parse(storage.getItem('freshman')),
             },
         }
@@ -118,11 +114,14 @@
 
         checkboxData('sophomore');
 
-        objData.push(storage.getItem('select'));
-        objData.push(storage.getItem('freshman'));
-        objData.push(storage.getItem('sophomore'));
+        let data = {
+            data: {
+                'freshman': JSON.parse(storage.getItem('freshman')),
+                'sophomore': JSON.parse(storage.getItem('sophomore')),
+            },
+        }
 
-        $('#check-form-sophomore').val(objData);
+        $('#check-form-sophomore').val(JSON.stringify(data));
     });
 
     juniorConfirmationSubmitBtn.on("click", function() {
