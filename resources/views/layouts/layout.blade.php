@@ -128,25 +128,31 @@
 
         checkboxData('junior');
 
-        objData.push(storage.getItem('select'));
-        objData.push(storage.getItem('freshman'));
-        objData.push(storage.getItem('sophomore'));
-        objData.push(storage.getItem('junior'));
+        let data = {
+            data: {
+                'freshman': JSON.parse(storage.getItem('freshman')),
+                'sophomore': JSON.parse(storage.getItem('sophomore')),
+                'junior': JSON.parse(storage.getItem('junior')),
+            },
+        }
 
-        $('#check-form-junior').val(objData);
+        $('#check-form-junior').val(JSON.stringify(data));
     });
 
     seniorConfirmationSubmitBtn.on("click", function() {
 
         checkboxData('senior');
 
-        objData.push(storage.getItem('select'));
-        objData.push(storage.getItem('freshman'));
-        objData.push(storage.getItem('sophomore'));
-        objData.push(storage.getItem('junior'));
-        objData.push(storage.getItem('senior'));
+        let data = {
+            data: {
+                'freshman': JSON.parse(storage.getItem('freshman')),
+                'sophomore': JSON.parse(storage.getItem('sophomore')),
+                'junior': JSON.parse(storage.getItem('junior')),
+                'senior': JSON.parse(storage.getItem('senior')),
+            },
+        }
 
-        $('#check-form-senior').val(objData);
+        $('#check-form-senior').val(JSON.stringify(data));
     });
 
     checkSubmitBtn.one('click', function () {
