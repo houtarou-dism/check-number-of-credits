@@ -55,7 +55,7 @@ class SeniorController extends Controller
 
         $this->getSelectData($json);
 
-        //必修科目だが、落としている単位
+        //必修科目だが、取得できていない科目一覧
         $notCompulsorySubjects = $this->getRequiredAll();
 
         //合計修得単位数
