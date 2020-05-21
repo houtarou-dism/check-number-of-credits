@@ -30,7 +30,7 @@
                 <label class="custom-control-label u-font-size-90 custom-checkbox-point" for="st-cb-d">ドイツ語Ⅰ</label>
             </div>
             <div class="custom-control custom-checkbox text-left ml-3 mb-5">
-                <input type="checkbox" id="st-cb-e" class="custom-control-input custom-checkbox-point" name="item" value="work_experience">
+                <input type="checkbox" id="st-cb-e" class="custom-control-input custom-checkbox-point" name="item" value="work_experience_two">
                 <label class="custom-control-label u-font-size-90 custom-checkbox-point" for="st-cb-e">就業実習</label>
             </div>
             <div class="custom-control custom-checkbox text-left ml-3 mb-5">

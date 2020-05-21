@@ -46,7 +46,7 @@
                 <label class="custom-control-label u-font-size-90 custom-checkbox-point" for="st-cb-b">English C</label>
             </div>
             <div class="custom-control custom-checkbox text-left ml-3 mb-5">
-                <input type="checkbox" id="st-cb-c" class="custom-control-input custom-checkbox-point" name="item" value="work_experience">
+                <input type="checkbox" id="st-cb-c" class="custom-control-input custom-checkbox-point" name="item" value="work_experience_one">
                 <label class="custom-control-label u-font-size-90 custom-checkbox-point" for="st-cb-c">就業実習</label>
             </div>
             <div class="custom-control custom-checkbox text-left ml-3 mb-5">
