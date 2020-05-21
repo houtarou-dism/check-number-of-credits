@@ -2,17 +2,16 @@
 
 namespace App\Traits;
 
-use Illuminate\Support\Arr;
 
 Trait Jsonable
 {
-    public function toJson($data)
+    public function fromJson($data)
     {
         return json_decode($data, true);
     }
 
-    public function getData($json, $select)
+    public function toJson($data)
     {
-        return Arr::get($json, 'data.'.$select);
+        return json_encode($data, true);
     }
 }
