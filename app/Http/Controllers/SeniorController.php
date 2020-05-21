@@ -3,10 +3,22 @@
 namespace App\Http\Controllers;
 
 
-use Illuminate\Http\Request;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
+use Illuminate\Support\Arr;
+use Illuminate\View\View;
+use App\Traits\Jsonable;
+use App\Traits\Verifiable;
+use App\Traits\Obtainable;
+use App\Http\Requests\CheckFormRequest;
+
 
 class SeniorController extends Controller
 {
+    use Jsonable, Verifiable, Obtainable;
+
     public function freshman()
     {
         return view('university.senior.senior-freshman');
@@ -27,8 +39,34 @@ class SeniorController extends Controller
         return view('university.senior.senior-senior');
     }
 
-    public function check(Request $request)
+    /**
+     * @param CheckFormRequest $request
+     * @return Application|Factory|RedirectResponse|Redirector|View
+     */
+    public function check(CheckFormRequest $request)
     {
-        dd($request);
+        $json = $this->fromJson($request->data);
+
+        if( !(Arr::has($json, 'data.freshman') && Arr::has($json, 'data.sophomore')
+            && Arr::has($json, 'data.junior') && Arr::has($json, 'data.senior')))
+        {
+            return redirect(route('index'))->with('message', '不正な操作が行われました。');
+        }
+
+        $this->getSelectData($json);
+
+        //必修科目だが、落としている単位
+        $notCompulsorySubjects['freshman'] = $this->requiredFreshman($this->data['freshman']);
+        $notCompulsorySubjects['sophomore'] = $this->requiredSophomore($this->data['sophomore']);
+        $notCompulsorySubjects['junior'] = $this->requiredJunior($this->data['junior']);
+        $notCompulsorySubjects['senior'] = $this->requiredSenior($this->data['senior']);
+
+        //合計修得単位数
+        $totalCredits = $this->getTotalCredits();
+
+        //進級条件を満たしているか
+        $judePromotion = $this->getJudePromotionSenior();
+
+        return view('university.result.senior-result', compact('notCompulsorySubjects', 'totalCredits', 'judePromotion'));
     }
 }

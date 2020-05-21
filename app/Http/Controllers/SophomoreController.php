@@ -2,15 +2,25 @@
 
 namespace App\Http\Controllers;
 
+
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Arr;
+use Illuminate\View\View;
 use App\Traits\Jsonable;
 use App\Traits\Verifiable;
+use App\Traits\Obtainable;
 use App\Http\Requests\CheckFormRequest;
 
 
 class SophomoreController extends Controller
 {
-    use Jsonable, Verifiable;
+    use Jsonable, Verifiable, Obtainable;
+
+    private $notFreshmanCompulsorySubjects;
+    private $notSophomoreCompulsorySubjects;
 
     public function freshman()
     {
@@ -22,27 +32,31 @@ class SophomoreController extends Controller
         return view('university.sophomore.sophomore-sophomore');
     }
 
+    /**
+     * @param CheckFormRequest $request
+     * @return Application|Factory|RedirectResponse|Redirector|View
+     */
     public function check(CheckFormRequest $request)
     {
         //todo 必須科目で落単している科目，総取得数
-        $json = $this->toJson($request->data);
+        $json = $this->fromJson($request->data);
 
-        if(!Arr::has($json, 'data.freshman') && !Arr::has($json, 'data.sophomore')){
+        if(! (Arr::has($json, 'data.freshman') && Arr::has($json, 'data.sophomore'))){
             return redirect(route('index'))->with('message', '不正な操作が行われました。');
         }
 
-        $notCompulsorySubjects = [];        //必修科目だが、落としている単位
+        $this->getSelectData($json);
 
-        foreach ($this->selectYears as $selectYear){
-            $this->data[$selectYear] =  $this->getData($json, $selectYear)  ?? [];
-            if($selectYear === 'sophomore') { break; }
-        }
+        //必修科目だが、取得できていない科目一覧
+        $notCompulsorySubjects['freshman'] = $this->requiredFreshman($this->data['freshman']);
+        $notCompulsorySubjects['sophomore'] = $this->requiredSophomore($this->data['sophomore']);
 
-        $notFreshmanCompulsorySubjects = json_encode($this->requiredFreshman($this->data['freshman']));
-        $notSophomoreCompulsorySubjects = json_encode($this->requiredSophomore($this->data['sophomore']));
+        //合計修得単位数
+        $totalCredits = $this->getTotalCredits();
 
-        $totalCredits = (count($this->data['freshman']) + count($this->data['sophomore'])) * 2;       //修得済単位数（１科目２単位）
+        //進級条件を満たしているか（６４単位以上修得していること）
+        $judePromotion = $this->getJudePromotionSophomore();
 
-        return view('university/result/sophomore-result', compact('notFreshmanCompulsorySubjects','notSophomoreCompulsorySubjects','totalCredits'));
+        return view('university.result.sophomore-result', compact('notCompulsorySubjects', 'totalCredits', 'judePromotion'));
     }
 }
