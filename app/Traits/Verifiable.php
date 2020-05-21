@@ -8,62 +8,58 @@ trait Verifiable
     /**
      * 大学１年次必修科目
      *
-     * @param $data
      * @return array|string
      */
-    public function requiredFreshman($data)
+    public function requiredFreshman()
     {
         $compulsorySubjects = [
             'communication_basics', 'career_development', 'physics_one', 'linear_algebra_one', 'analysis_one', 'basic_information_seminar',
             'computer_science', 'computer_literacy', 'c_programming_one', 'c_programming_two', 'electric_circuit_one', 'computer_architecture_one'
         ];
 
-        return array_values(array_diff($compulsorySubjects, $data));
+        return array_values(array_diff($compulsorySubjects, $this->data['freshman']));
     }
 
     /**
      * 大学２年次必修科目
      *
-     * @param $data
      * @return array|string
      */
-    public function requiredSophomore($data)
+    public function requiredSophomore()
     {
         $compulsorySubjects = [
             'stochastic_theory', 'automata_and_formal_languages', 'java_programming_one', 'operating_system',
             'data_structures_and_algorithms', 'logic_circuit', 'information_engineering_experiment_one', 'information_engineering_experiment_two'
         ];
 
-        return array_values(array_diff($compulsorySubjects, $data));
+        return array_values(array_diff($compulsorySubjects, $this->data['sophomore']));
     }
 
     /**
      * 大学３年次必修科目
      *
-     * @param $data
      * @return array|string
      */
-    public function requiredJunior($data)
+    public function requiredJunior()
     {
         $compulsorySubjects = [
             'special_lecture_on_information_technology', 'information_engineering_experiment_three', 'human_computer_interaction',
             'information_technology_ethics', 'information_engineering_experiment_four', 'information_network'
         ];
 
-        return array_values(array_diff($compulsorySubjects, $data));
+        return array_values(array_diff($compulsorySubjects, $this->data['junior']));
     }
 
     /**
      * 大学４年次必修科目
      *
-     * @param $data
      * @return array|string
      */
-    public function requiredSenior($data)
+    public function requiredSenior()
     {
         $compulsorySubjects = ['graduation_thesis'];
 
-        return array_values(array_diff($compulsorySubjects, $data));
+        return array_values(array_diff($compulsorySubjects, $this->data['senior']));
     }
 
     /**

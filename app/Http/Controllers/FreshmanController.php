@@ -40,7 +40,8 @@ class FreshmanController extends Controller
         $this->getSelectData($json);
 
         //必修科目だが、取得できていない科目一覧
-        $notCompulsorySubjects = $this->requiredFreshman($this->data['freshman']);
+        $notCompulsorySubjects = $this->getRequiredAll();
+
         //合計修得単位数
         $totalCredits = $this->getTotalCredits();
 

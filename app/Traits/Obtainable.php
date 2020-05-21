@@ -11,7 +11,6 @@ trait Obtainable
     private $data = [];
     private $selectYears = ['freshman', 'sophomore', 'junior', 'senior'];
 
-
     /**
      * jsonから選択したデータを取得
      *
@@ -34,7 +33,6 @@ trait Obtainable
         return array_merge($this->data['freshman'], $this->data['sophomore'], $this->data['junior'], $this->data['senior']);
     }
 
-
     /**
      * dataにすべての学年データを追加
      *
@@ -46,7 +44,6 @@ trait Obtainable
             $this->data[$selectYear] =  $this->getData($json, $selectYear);
         }
     }
-
 
     /**
      * 修得している単位数の計算
@@ -61,6 +58,26 @@ trait Obtainable
         return $this->counts * 2;
     }
 
+    /**
+     * 必修科目だが、取得できていない科目を取得
+     *
+     * @return array
+     */
+    public function getRequiredAll(): array
+    {
+        $notCompulsorySubjects = [];
+
+        $years = array(
+            'freshman' => $this->requiredFreshman(), 'sophomore' => $this->requiredSophomore(),
+            'junior' => $this->requiredJunior(), 'senior' => $this->requiredSenior()
+        );
+
+        foreach ($years as $year => $value){
+            $notCompulsorySubjects[$year] = $value;
+        }
+
+        return $notCompulsorySubjects;
+    }
 
     /**
      * オブジェクトの単位計算用関数

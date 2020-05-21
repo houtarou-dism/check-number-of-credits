@@ -56,10 +56,7 @@ class SeniorController extends Controller
         $this->getSelectData($json);
 
         //必修科目だが、落としている単位
-        $notCompulsorySubjects['freshman'] = $this->requiredFreshman($this->data['freshman']);
-        $notCompulsorySubjects['sophomore'] = $this->requiredSophomore($this->data['sophomore']);
-        $notCompulsorySubjects['junior'] = $this->requiredJunior($this->data['junior']);
-        $notCompulsorySubjects['senior'] = $this->requiredSenior($this->data['senior']);
+        $notCompulsorySubjects = $this->getRequiredAll();
 
         //合計修得単位数
         $totalCredits = $this->getTotalCredits();
