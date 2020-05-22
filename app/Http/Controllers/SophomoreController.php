@@ -22,12 +22,12 @@ class SophomoreController extends Controller
 
     public function freshman()
     {
-        return view('university.sophomore.sophomore-freshman');
+        return url()->previous() === 'https://kadai.test/' ? view('university.sophomore.sophomore-freshman') : abort(404);
     }
 
     public function sophomore()
     {
-        return view('university.sophomore.sophomore-sophomore');
+        return url()->previous() === 'https://kadai.test/select_year/sophomore/1' ? view('university.sophomore.sophomore-sophomore') : abort(404);
     }
 
     /**
@@ -36,7 +36,6 @@ class SophomoreController extends Controller
      */
     public function check(CheckFormRequest $request)
     {
-        //todo 必須科目で落単している科目，総取得数
         $json = $this->fromJson($request->data);
 
         if(! (Arr::has($json, 'data.freshman') && Arr::has($json, 'data.sophomore'))){

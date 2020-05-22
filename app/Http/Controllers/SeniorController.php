@@ -22,22 +22,22 @@ class SeniorController extends Controller
 
     public function freshman()
     {
-        return view('university.senior.senior-freshman');
+        return url()->previous() === 'https://kadai.test/' ? view('university.senior.senior-freshman') : abort(404);
     }
 
     public function sophomore()
     {
-        return view('university.senior.senior-sophomore');
+        return url()->previous() === 'https://kadai.test/select_year/senior/1' ? view('university.senior.senior-sophomore') : abort(404);
     }
 
     public function junior()
     {
-        return view('university.senior.senior-junior');
+        return url()->previous() === 'https://kadai.test/select_year/senior/2' ? view('university.senior.senior-junior') : abort(404);
     }
 
     public function senior()
     {
-        return view('university.senior.senior-senior');
+        return url()->previous() === 'https://kadai.test/select_year/senior/3' ? view('university.senior.senior-senior') : abort(404);
     }
 
     /**

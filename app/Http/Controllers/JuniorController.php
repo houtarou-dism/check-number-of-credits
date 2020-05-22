@@ -22,17 +22,17 @@ class JuniorController extends Controller
 
     public function freshman()
     {
-        return view('university.junior.junior-freshman');
+        return url()->previous() === 'https://kadai.test/' ? view('university.junior.junior-freshman') : abort(404);
     }
 
     public function sophomore()
     {
-        return view('university.junior.junior-sophomore');
+        return url()->previous() === 'https://kadai.test/select_year/junior/1' ? view('university.junior.junior-sophomore') : abort(404);
     }
 
     public function junior()
     {
-        return view('university.junior.junior-junior');
+        return url()->previous() === 'https://kadai.test/select_year/junior/2' ? view('university.junior.junior-junior') : abort(404);
     }
 
     /**
