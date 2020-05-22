@@ -111,7 +111,7 @@ trait Obtainable
      */
     public function getJudePromotionSophomore(): string
     {
-        return $this->counts >= 64 ? 'success' : 'failure';
+        return $this->counts * 2 >= 64 ? 'success' : 'failure';
     }
 
 
