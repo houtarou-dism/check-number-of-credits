@@ -12,15 +12,13 @@ use Illuminate\View\View;
 use App\Traits\Jsonable;
 use App\Traits\Verifiable;
 use App\Traits\Obtainable;
+use App\Traits\Convertible;
 use App\Http\Requests\CheckFormRequest;
 
 
 class SophomoreController extends Controller
 {
-    use Jsonable, Verifiable, Obtainable;
-
-    private $notFreshmanCompulsorySubjects;
-    private $notSophomoreCompulsorySubjects;
+    use Jsonable, Verifiable, Obtainable, Convertible;
 
     public function freshman()
     {
@@ -48,7 +46,7 @@ class SophomoreController extends Controller
         $this->getSelectData($json);
 
         //必修科目だが、取得できていない科目一覧
-        $notCompulsorySubjects = $this->getRequiredAll();
+        $notCompulsorySubjects = $this->getRequiredAll($this->requiredFreshman(), $this->requiredSophomore());
 
         //合計修得単位数
         $totalCredits = $this->getTotalCredits();
