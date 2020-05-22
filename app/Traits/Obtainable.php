@@ -61,19 +61,23 @@ trait Obtainable
     /**
      * 必修科目だが、取得できていない科目を取得
      *
+     * @param array $freshman
+     * @param array $sophomore
+     * @param array $junior
+     * @param array $senior
      * @return array
      */
-    public function getRequiredAll(): array
+    public function getRequiredAll($freshman = [], $sophomore = [], $junior = [], $senior = []): array
     {
         $notCompulsorySubjects = [];
 
-        $years = array(
-            'freshman' => $this->requiredFreshman(), 'sophomore' => $this->requiredSophomore(),
-            'junior' => $this->requiredJunior(), 'senior' => $this->requiredSenior()
-        );
+        $years = [
+            'freshman' => $freshman, 'sophomore' => $sophomore,
+            'junior' => $junior, 'senior' => $senior
+        ];
 
         foreach ($years as $year => $value){
-            $notCompulsorySubjects[$year] = $value;
+            $notCompulsorySubjects[$year] = $this->requiredSubjectsJapanese($year, $value);
         }
 
         return $notCompulsorySubjects;
