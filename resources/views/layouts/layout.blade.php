@@ -8,7 +8,7 @@
     <title>単位取得数チェック</title>
 
     <!-- CSS-->
-    <link rel="stylesheet" href="{{ asset('//fonts.googleapis.com/css?family=Playfair+Display:400,700%7COpen+Sans:300,400,700') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP">
     <link rel="stylesheet" href="{{ asset('fontawesome-5.13.0/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
