@@ -9,6 +9,7 @@ trait Obtainable
 {
     private $counts;
     private $data = [];
+    private $notCompulsorySubjects = [];
     private $selectYears = ['freshman', 'sophomore', 'junior', 'senior'];
 
     /**
@@ -34,7 +35,7 @@ trait Obtainable
     }
 
     /**
-     * dataにすべての学年データを追加
+     * dataに入力されたすべての学年データを追加
      *
      * @param $json
      */
@@ -69,18 +70,16 @@ trait Obtainable
      */
     public function getRequiredAll($freshman = [], $sophomore = [], $junior = [], $senior = []): array
     {
-        $notCompulsorySubjects = [];
-
         $years = [
             'freshman' => $freshman, 'sophomore' => $sophomore,
             'junior' => $junior, 'senior' => $senior
         ];
 
         foreach ($years as $year => $value){
-            $notCompulsorySubjects[$year] = $this->requiredSubjectsJapanese($year, $value);
+            $this->notCompulsorySubjects[$year] = $this->requiredSubjectsJapanese($year, $value);
         }
 
-        return $notCompulsorySubjects;
+        return $this->notCompulsorySubjects;
     }
 
     /**
@@ -102,6 +101,17 @@ trait Obtainable
     public function getTotalSpecialized(): array
     {
         return array_merge($this->specializedFreshman(), $this->specializedSophomore(), $this->specializedJunior(), $this->specializedSenior());
+    }
+
+    /**
+     * 必修科目で落とした科目がないか確認
+     *
+     * @return bool
+     */
+    public function getTotalRequiredSubjects(): bool
+    {
+        return $this->notCompulsorySubjects['freshman'] === [] && $this->notCompulsorySubjects['sophomore'] === []
+                && $this->notCompulsorySubjects['junior'] === [] && $this->notCompulsorySubjects['senior'] === [];
     }
 
     /**
@@ -132,11 +142,12 @@ trait Obtainable
     {
         $allData = $this->getAllData();
 
-        return $this->counts * 2 >= 124
+        return  $this->counts * 2 >= 124
                 && $this->getCreditsCalculation($this->cultureEducation($allData)) >= 14
                 && $this->getCreditsCalculation($this->skillEducationForeign($allData)) >= 8
                 && $this->getCreditsCalculation($this->skillEducationCareer($allData)) >= 2
                 && $this->getCreditsCalculation($this->getTotalSpecialized()) >= 84
+                && $this->getTotalRequiredSubjects() === true
                 ? 'success' : 'failure';
     }
 }
