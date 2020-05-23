@@ -1,7 +1,7 @@
 <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
         <div class="text-center dialog-header">
-            <p class="mb-0 f-s-24 fo-wei">進級条件</p>
+            <h3 class="mb-0 fo-wei">卒業要件</h3>
         </div>
         <div class="modal-body">
             <p class="f-s-20">　卒業するためには、次の要件を全て満たしていなければなりません。</p>
