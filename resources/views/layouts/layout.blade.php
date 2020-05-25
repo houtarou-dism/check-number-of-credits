@@ -7,6 +7,8 @@
 
     <title>単位取得数チェック</title>
 
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <!-- CSS-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP">
     <link rel="stylesheet" href="{{ asset('fontawesome-5.13.0/css/all.css') }}">
