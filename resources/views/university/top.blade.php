@@ -27,8 +27,8 @@
                     </p>
                     <div>
                         <h4 class="dialog-operating-environment">動作環境</h4>
-                        <p class="mb-0">推奨環境：Google Chrome（最新版）</p>
-                        <p class="mb-0 dialog-operating-environment-child">動作環境：Mozilla Firefox（最新版），<br>Apple Safari（最新版）</p>
+                        <p class="mb-0 dialog-operating-environment-child">推奨環境：Google Chrome（最新版），<br>Apple Safari（最新版）</p>
+                        <p class="mb-0">動作環境：Mozilla Firefox（最新版）</p>
                     </div>
                 </div>
             </div>
