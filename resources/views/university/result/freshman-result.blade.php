@@ -46,4 +46,9 @@
             </div>
         </div>
     </main>
+    <footer class="select-year-footer">
+        <div class="text-center mt-3">
+            <p>© 2020 houtarou.</p>
+        </div>
+    </footer>
 @endsection

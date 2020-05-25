@@ -12,6 +12,12 @@
     position: relative;
 }
 
+.select-year-footer{
+    width: 10rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .select-year-title{
     width: 100%;
     font-size: 1.8rem;
@@ -158,7 +164,7 @@
 
 .result-main-position{
     padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
 }
 
 .result-content-position{
