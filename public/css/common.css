@@ -195,3 +195,11 @@
         font-size: 18px !important;
     }
 }
+
+.copyright-text{
+    color: #000000;
+}
+
+.copyright-text:hover{
+    color: #c7c5c5;
+}

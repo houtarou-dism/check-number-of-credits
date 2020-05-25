@@ -23,7 +23,7 @@
                         確認し、これからの計画を立てることができます。
                     </p>
                     <p>
-                        <span style="color: #e01616">※このアプリの進級条件や卒業要件は、福岡工業大学 平成２９年度（２０１７ 年度）を参考にしています。</span>
+                        <span style="color: #e01616">※このアプリの進級条件や卒業要件は、福岡工業大学 学生便覧 平成２９年度（２０１７ 年度）を参考にしています。</span>
                     </p>
                     <div>
                         <h4 class="dialog-operating-environment">動作環境</h4>
@@ -61,7 +61,7 @@
     </main>
     <footer class="select-year-footer">
         <div class="text-center mt-3">
-            <p>© 2020 houtarou.</p>
+            <p><a class="copyright-text" href="https://github.com/houtarou-dism">© 2020 houtarou.</a></p>
         </div>
     </footer>
 @endsection
