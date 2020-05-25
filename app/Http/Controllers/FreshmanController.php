@@ -27,7 +27,7 @@ class FreshmanController extends Controller
             return url()->previous() === 'https://kadai.test/' ? view('university.freshman.freshman-freshman') : abort(404);
         }
 
-        return view('university.freshman.freshman-freshman');
+        return url()->previous() === 'https://credit-check.coposa.work/' ? view('university.freshman.freshman-freshman') : abort(404);
     }
 
     /**

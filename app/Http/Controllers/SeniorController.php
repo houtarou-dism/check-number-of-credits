@@ -27,7 +27,7 @@ class SeniorController extends Controller
             return url()->previous() === 'https://kadai.test/' ? view('university.senior.senior-freshman') : abort(404);
         }
 
-        return view('university.senior.senior-freshman');
+        return url()->previous() === 'https://credit-check.coposa.work/' ? view('university.senior.senior-freshman') : abort(404);
     }
 
     public function sophomore()
@@ -36,7 +36,7 @@ class SeniorController extends Controller
             return url()->previous() === 'https://kadai.test/select_year/senior/1' ? view('university.senior.senior-sophomore') : abort(404);
         }
 
-        return view('university.senior.senior-sophomore');
+        return url()->previous() === 'https://credit-check.coposa.work/select_year/senior/1' ? view('university.senior.senior-sophomore') : abort(404);
     }
 
     public function junior()
@@ -45,7 +45,7 @@ class SeniorController extends Controller
             return url()->previous() === 'https://kadai.test/select_year/senior/2' ? view('university.senior.senior-junior') : abort(404);
         }
 
-        return view('university.senior.senior-junior');
+        return url()->previous() === 'https://credit-check.coposa.work/select_year/senior/2' ? view('university.senior.senior-junior') : abort(404);
     }
 
     public function senior()
@@ -54,7 +54,7 @@ class SeniorController extends Controller
             return url()->previous() === 'https://kadai.test/select_year/senior/3' ? view('university.senior.senior-senior') : abort(404);
         }
 
-        return view('university.senior.senior-senior');
+        return url()->previous() === 'https://credit-check.coposa.work/select_year/senior/3' ? view('university.senior.senior-senior') : abort(404);
     }
 
     /**

@@ -27,7 +27,7 @@ class SophomoreController extends Controller
             return url()->previous() === 'https://kadai.test/' ? view('university.sophomore.sophomore-freshman') : abort(404);
         }
 
-        return view('university.sophomore.sophomore-freshman');
+        return url()->previous() === 'https://credit-check.coposa.work/' ? view('university.sophomore.sophomore-freshman') : abort(404);
     }
 
     public function sophomore()
@@ -36,7 +36,7 @@ class SophomoreController extends Controller
             return url()->previous() === 'https://kadai.test/select_year/sophomore/1' ? view('university.sophomore.sophomore-sophomore') : abort(404);
         }
 
-        return view('university.sophomore.sophomore-sophomore');
+        return url()->previous() === 'https://credit-check.coposa.work/select_year/sophomore/1' ? view('university.sophomore.sophomore-sophomore') : abort(404);
     }
 
     /**
