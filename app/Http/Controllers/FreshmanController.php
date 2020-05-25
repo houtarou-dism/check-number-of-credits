@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
@@ -22,7 +23,11 @@ class FreshmanController extends Controller
 
     public function freshman()
     {
-        return url()->previous() === 'https://kadai.test/' ? view('university.freshman.freshman-freshman') : abort(404);
+        if (App::environment('local')){
+            return url()->previous() === 'https://kadai.test/' ? view('university.freshman.freshman-freshman') : abort(404);
+        }
+
+        return view('university.freshman.freshman-freshman');
     }
 
     /**

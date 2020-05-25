@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
@@ -22,17 +23,30 @@ class JuniorController extends Controller
 
     public function freshman()
     {
-        return url()->previous() === 'https://kadai.test/' ? view('university.junior.junior-freshman') : abort(404);
+        if (App::environment('local')){
+            return url()->previous() === 'https://kadai.test/' ? view('university.junior.junior-freshman') : abort(404);
+        }
+
+        return view('university.junior.junior-freshman');
     }
 
     public function sophomore()
     {
-        return url()->previous() === 'https://kadai.test/select_year/junior/1' ? view('university.junior.junior-sophomore') : abort(404);
+        if (App::environment('local')){
+            return url()->previous() === 'https://kadai.test/select_year/junior/1' ? view('university.junior.junior-sophomore') : abort(404);
+        }
+
+        return view('university.junior.junior-sophomore');
+
     }
 
     public function junior()
     {
-        return url()->previous() === 'https://kadai.test/select_year/junior/2' ? view('university.junior.junior-junior') : abort(404);
+        if (App::environment('local')){
+            return url()->previous() === 'https://kadai.test/select_year/junior/2' ? view('university.junior.junior-junior') : abort(404);
+        }
+
+        return view('university.junior.junior-junior');
     }
 
     /**

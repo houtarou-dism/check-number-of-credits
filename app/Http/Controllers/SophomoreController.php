@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
@@ -22,12 +23,20 @@ class SophomoreController extends Controller
 
     public function freshman()
     {
-        return url()->previous() === 'https://kadai.test/' ? view('university.sophomore.sophomore-freshman') : abort(404);
+        if (App::environment('local')){
+            return url()->previous() === 'https://kadai.test/' ? view('university.sophomore.sophomore-freshman') : abort(404);
+        }
+
+        return view('university.sophomore.sophomore-freshman');
     }
 
     public function sophomore()
     {
-        return url()->previous() === 'https://kadai.test/select_year/sophomore/1' ? view('university.sophomore.sophomore-sophomore') : abort(404);
+        if (App::environment('local')){
+            return url()->previous() === 'https://kadai.test/select_year/sophomore/1' ? view('university.sophomore.sophomore-sophomore') : abort(404);
+        }
+
+        return view('university.sophomore.sophomore-sophomore');
     }
 
     /**

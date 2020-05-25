@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
@@ -22,22 +23,38 @@ class SeniorController extends Controller
 
     public function freshman()
     {
-        return url()->previous() === 'https://kadai.test/' ? view('university.senior.senior-freshman') : abort(404);
+        if (App::environment('local')){
+            return url()->previous() === 'https://kadai.test/' ? view('university.senior.senior-freshman') : abort(404);
+        }
+
+        return view('university.senior.senior-freshman');
     }
 
     public function sophomore()
     {
-        return url()->previous() === 'https://kadai.test/select_year/senior/1' ? view('university.senior.senior-sophomore') : abort(404);
+        if (App::environment('local')){
+            return url()->previous() === 'https://kadai.test/select_year/senior/1' ? view('university.senior.senior-sophomore') : abort(404);
+        }
+
+        return view('university.senior.senior-sophomore');
     }
 
     public function junior()
     {
-        return url()->previous() === 'https://kadai.test/select_year/senior/2' ? view('university.senior.senior-junior') : abort(404);
+        if (App::environment('local')){
+            return url()->previous() === 'https://kadai.test/select_year/senior/2' ? view('university.senior.senior-junior') : abort(404);
+        }
+
+        return view('university.senior.senior-junior');
     }
 
     public function senior()
     {
-        return url()->previous() === 'https://kadai.test/select_year/senior/3' ? view('university.senior.senior-senior') : abort(404);
+        if (App::environment('local')){
+            return url()->previous() === 'https://kadai.test/select_year/senior/3' ? view('university.senior.senior-senior') : abort(404);
+        }
+
+        return view('university.senior.senior-senior');
     }
 
     /**
