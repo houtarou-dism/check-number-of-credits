@@ -11,7 +11,10 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="text-center dialog-header">
-                    <h3 class="mb-0 fo-wei">このアプリについて</h3>
+                    <h3 class="d-inline-block mb-0 fo-wei">このアプリについて</h3>
+                    <button type="button" class="close dialog-close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
                 </div>
                 <div class="p-3">
                     <p>
@@ -22,6 +25,11 @@
                     <p>
                         <span style="color: #e01616">※このアプリの進級条件や卒業要件は、福岡工業大学 平成２９年度（２０１７ 年度）を参考にしています。</span>
                     </p>
+                    <div>
+                        <h4 class="dialog-operating-environment">動作環境</h4>
+                        <p class="mb-0">推奨環境：Google Chrome（最新版）</p>
+                        <p class="mb-0 dialog-operating-environment-child">動作環境：Mozilla Firefox（最新版），<br>Apple Safari（最新版）</p>
+                    </div>
                 </div>
             </div>
         </div>

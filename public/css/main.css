@@ -151,6 +151,17 @@
     padding-top: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid #e6e7e9;
+    position: relative;
+}
+
+.dialog-close{
+    position: relative;
+    top: 7px;
+    right: 10px;
+}
+
+.dialog-close:focus{
+    outline: none;
 }
 
 .result-dialog{
@@ -160,6 +171,16 @@
 .modal-body > p{
     padding-left: 1em;
     text-indent: -1em;
+}
+
+.dialog-operating-environment{
+    margin-top: 1.8rem;
+    border-bottom: 1px solid #c7c3c3;
+}
+
+.dialog-operating-environment-child{
+    padding-left: 5em;
+    text-indent: -5em;
 }
 
 .result-main-position{

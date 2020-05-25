@@ -1,7 +1,10 @@
 <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
         <div class="text-center dialog-header">
-            <h3 class="mb-0 fo-wei">卒業要件</h3>
+            <h3 class="d-inline-block mb-0 fo-wei">卒業要件</h3>
+            <button type="button" class="close dialog-close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
         </div>
         <div class="modal-body">
             <p class="f-s-20">　卒業するためには、次の要件を全て満たしていなければなりません。</p>
