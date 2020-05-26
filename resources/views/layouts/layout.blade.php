@@ -162,8 +162,6 @@
         setTimeout(function(){
             checkSubmitBtn.prop("disabled", true);
         },1);
-
-        storage.clear();
     })
 
     $(function () {
