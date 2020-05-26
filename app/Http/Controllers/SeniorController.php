@@ -77,7 +77,7 @@ class SeniorController extends Controller
         $notCompulsorySubjects = $this->getRequiredAll($this->requiredFreshman(), $this->requiredSophomore(), $this->requiredJunior(), $this->requiredSenior());
 
         //合計修得単位数
-        $totalCredits = $this->getTotalCredits();
+        $totalCredits = $this->getSpecialTotalCredits();
 
         //進級条件を満たしているか
         $judePromotion = $this->getJudePromotionSenior();

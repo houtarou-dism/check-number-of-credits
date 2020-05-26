@@ -60,6 +60,16 @@ trait Obtainable
     }
 
     /**
+     * １科目で６単位ある卒研が含まれているときの処理
+     *
+     * @return int
+     */
+    public function getSpecialTotalCredits(): int
+    {
+        return $this->requiredSenior() === [] ? $this->getTotalCredits() + 4 : $this->getTotalCredits();
+    }
+
+    /**
      * 必修科目だが、取得できていない科目を取得
      *
      * @param array $freshman
@@ -142,7 +152,7 @@ trait Obtainable
     {
         $allData = $this->getAllData();
 
-        return  $this->counts * 2 >= 124
+        return  ($this->requiredSenior() === [] ? $this->counts * 2 + 4 : $this->counts * 2) >= 124
                 && $this->getCreditsCalculation($this->cultureEducation($allData)) >= 14
                 && $this->getCreditsCalculation($this->skillEducationForeign($allData)) >= 8
                 && $this->getCreditsCalculation($this->skillEducationCareer($allData)) >= 2
