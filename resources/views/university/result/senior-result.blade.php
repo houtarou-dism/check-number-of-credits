@@ -11,7 +11,7 @@
                     @if($judePromotion === 'success')
                         <div class="text-center judgment-promotion-status-success">
                             <div class="d-inline-block">
-                                <p class="mb-0 f-s-30">進級可能</p>
+                                <p class="mb-0 f-s-30">卒業可能</p>
                             </div>
                             <div class="d-inline-block">
                                 <a id="confirmation-freshman-submit-button" class="d-inline-block text-center" role="button" data-toggle="modal" href="#confirmationScreen">
@@ -22,7 +22,7 @@
                     @else
                         <div class="text-center judgment-promotion-status-failure">
                             <div class="d-inline-block">
-                                <p class="mb-0 f-s-30">進級不可</p>
+                                <p class="mb-0 f-s-30">卒業不可</p>
                             </div>
                             <div class="d-inline-block">
                                 <a id="confirmation-freshman-submit-button" class="d-inline-block text-center" role="button" data-toggle="modal" href="#confirmationScreen">
