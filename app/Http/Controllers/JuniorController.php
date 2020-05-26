@@ -24,7 +24,7 @@ class JuniorController extends Controller
     public function freshman()
     {
         if (App::environment('local')){
-            return url()->previous() === 'https://kadai.test/' ? view('university.junior.junior-freshman') : abort(404);
+            return url()->previous() === 'http://kadai.test/' ? view('university.junior.junior-freshman') : abort(404);
         }
 
         return url()->previous() === 'https://credit-check.coposa.work/' ? view('university.junior.junior-freshman') : abort(404);
@@ -33,7 +33,7 @@ class JuniorController extends Controller
     public function sophomore()
     {
         if (App::environment('local')){
-            return url()->previous() === 'https://kadai.test/select_year/junior/1' ? view('university.junior.junior-sophomore') : abort(404);
+            return url()->previous() === 'http://kadai.test/select_year/junior/1' ? view('university.junior.junior-sophomore') : abort(404);
         }
 
         return url()->previous() === 'https://credit-check.coposa.work/select_year/junior/1' ? view('university.junior.junior-sophomore') : abort(404);
@@ -42,7 +42,7 @@ class JuniorController extends Controller
     public function junior()
     {
         if (App::environment('local')){
-            return url()->previous() === 'https://kadai.test/select_year/junior/2' ? view('university.junior.junior-junior') : abort(404);
+            return url()->previous() === 'http://kadai.test/select_year/junior/2' ? view('university.junior.junior-junior') : abort(404);
         }
 
         return url()->previous() === 'https://credit-check.coposa.work/select_year/junior/2' ? view('university.junior.junior-junior') : abort(404);

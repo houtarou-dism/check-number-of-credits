@@ -24,7 +24,7 @@ class SeniorController extends Controller
     public function freshman()
     {
         if (App::environment('local')){
-            return url()->previous() === 'https://kadai.test/' ? view('university.senior.senior-freshman') : abort(404);
+            return url()->previous() === 'http://kadai.test/' ? view('university.senior.senior-freshman') : abort(404);
         }
 
         return url()->previous() === 'https://credit-check.coposa.work/' ? view('university.senior.senior-freshman') : abort(404);
@@ -33,7 +33,7 @@ class SeniorController extends Controller
     public function sophomore()
     {
         if (App::environment('local')){
-            return url()->previous() === 'https://kadai.test/select_year/senior/1' ? view('university.senior.senior-sophomore') : abort(404);
+            return url()->previous() === 'http://kadai.test/select_year/senior/1' ? view('university.senior.senior-sophomore') : abort(404);
         }
 
         return url()->previous() === 'https://credit-check.coposa.work/select_year/senior/1' ? view('university.senior.senior-sophomore') : abort(404);
@@ -42,7 +42,7 @@ class SeniorController extends Controller
     public function junior()
     {
         if (App::environment('local')){
-            return url()->previous() === 'https://kadai.test/select_year/senior/2' ? view('university.senior.senior-junior') : abort(404);
+            return url()->previous() === 'http://kadai.test/select_year/senior/2' ? view('university.senior.senior-junior') : abort(404);
         }
 
         return url()->previous() === 'https://credit-check.coposa.work/select_year/senior/2' ? view('university.senior.senior-junior') : abort(404);
@@ -51,7 +51,7 @@ class SeniorController extends Controller
     public function senior()
     {
         if (App::environment('local')){
-            return url()->previous() === 'https://kadai.test/select_year/senior/3' ? view('university.senior.senior-senior') : abort(404);
+            return url()->previous() === 'http://kadai.test/select_year/senior/3' ? view('university.senior.senior-senior') : abort(404);
         }
 
         return url()->previous() === 'https://credit-check.coposa.work/select_year/senior/3' ? view('university.senior.senior-senior') : abort(404);

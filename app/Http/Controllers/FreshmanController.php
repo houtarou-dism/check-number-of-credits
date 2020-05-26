@@ -24,7 +24,7 @@ class FreshmanController extends Controller
     public function freshman()
     {
         if (App::environment('local')){
-            return url()->previous() === 'https://kadai.test/' ? view('university.freshman.freshman-freshman') : abort(404);
+            return url()->previous() === 'http://kadai.test/' ? view('university.freshman.freshman-freshman') : abort(404);
         }
 
         return url()->previous() === 'https://credit-check.coposa.work/' ? view('university.freshman.freshman-freshman') : abort(404);

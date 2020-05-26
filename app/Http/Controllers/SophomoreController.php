@@ -24,7 +24,7 @@ class SophomoreController extends Controller
     public function freshman()
     {
         if (App::environment('local')){
-            return url()->previous() === 'https://kadai.test/' ? view('university.sophomore.sophomore-freshman') : abort(404);
+            return url()->previous() === 'http://kadai.test/' ? view('university.sophomore.sophomore-freshman') : abort(404);
         }
 
         return url()->previous() === 'https://credit-check.coposa.work/' ? view('university.sophomore.sophomore-freshman') : abort(404);
@@ -33,7 +33,7 @@ class SophomoreController extends Controller
     public function sophomore()
     {
         if (App::environment('local')){
-            return url()->previous() === 'https://kadai.test/select_year/sophomore/1' ? view('university.sophomore.sophomore-sophomore') : abort(404);
+            return url()->previous() === 'http://kadai.test/select_year/sophomore/1' ? view('university.sophomore.sophomore-sophomore') : abort(404);
         }
 
         return url()->previous() === 'https://credit-check.coposa.work/select_year/sophomore/1' ? view('university.sophomore.sophomore-sophomore') : abort(404);
