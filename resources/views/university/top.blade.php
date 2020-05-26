@@ -60,7 +60,7 @@
         </div>
     </main>
     <footer class="select-year-footer">
-        <div class="text-center mt-3">
+        <div class="text-center mt-5">
             <p><a class="copyright-text" href="https://github.com/houtarou-dism">© 2020 houtarou.</a></p>
         </div>
     </footer>
